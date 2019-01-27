@@ -5,7 +5,7 @@ var mysql = require('mysql');
 //const hostname = '127.0.0.1';
 const hostname = 'localhost';
 const port = 8080;
-const database ={
+const database = {
   'host': 'localhost',
   'user': "root",
   'password': "admin"
@@ -31,6 +31,4 @@ var con = mysql.createConnection({
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
-  console.log(process.env.dbPass);
 });
-process.env
