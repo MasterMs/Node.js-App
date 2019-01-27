@@ -1,15 +1,17 @@
 var http = require('http');
 var fs = require('fs');
 var mysql = require('mysql');
+const dotenv = require('dotenv');
+
+dotenv.config({
+  path: './.env'
+})
+
 
 //const hostname = '127.0.0.1';
 const hostname = 'localhost';
 const port = 8080;
-const database = {
-  'host': 'localhost',
-  'user': "root",
-  'password': "admin"
-}
+
 
 const server = http.createServer((req, res) => {
 	res.statusCode = 200;
@@ -23,12 +25,13 @@ server.listen(port, hostname, () => {
 });
 
 var con = mysql.createConnection({
-  host: database['host'],
-  user: database['user'],
-  password: database['password']
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DBPASSWORD
 });
 
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
 });
+
