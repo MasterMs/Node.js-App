@@ -7,6 +7,8 @@ might be a good way of doing so
 The languages being used as of now are
 - Javascript(node.js)
 - SQL(MySQL)
+- HTML
+- CSS
 
 
 Enjoy, 
