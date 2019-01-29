@@ -4,9 +4,9 @@ var path = require('path');
 var mysql = require('mysql');
 var dotenv = require('dotenv');
 var express = require('express');
-var app  = express();
 
-dotenv.config() 
+var app  = express();
+dotenv.config();
 
 // define hostname and port
 const hostname = 'localhost';
