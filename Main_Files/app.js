@@ -6,7 +6,11 @@ var dotenv = require('dotenv');
 var express = require('express');
 
 var app  = express();
-dotenv.config();
+
+const result = dotenv.config();
+if (result.error){
+  throw result.error;
+}
 
 // define hostname and port
 const hostname = 'localhost';
@@ -32,6 +36,6 @@ app.listen(port, hostname, () => {
 
 //routes
 app.get('/', function(req, res){
-  res.sendFile(__dirname + 'index.html');
+  res.sendFile(__dirname + '/index.html');
 });
 
