@@ -9,36 +9,19 @@ h1 {
 }
 
 p {
+  
   margin-right: 25%
 }
 
-ul {
+a{
+  font-family: 'Major Mono Display', monospace;
+  vertical-align: -50%;
+
+  color: white;
+}
+
+#nav-bar{
   font-size: 14pt;
-  list-style-type: none;
-  height: 50px;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
   background-color: black;
-}
-
-li {
-  vertical-align: middle;
-  color: white;
-  align-content: center;
-  font-weight: bolder;
-
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 18px 16px;
-  text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-  background-color: #111;
+  height: 50px;
 }
