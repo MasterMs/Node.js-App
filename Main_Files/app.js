@@ -5,33 +5,33 @@ var mysql = require('mysql');
 var dotenv = require('dotenv');
 var express = require('express');
 var app  = express();
-dotenv.config()
 
+dotenv.config() 
 
-//const hostname = '127.0.0.1';
+// define hostname and port
 const hostname = 'localhost';
 const port = 8080;
 
 
-const server = http.createServer((request, response) => {
-	response.statusCode = 200;
-	response.setHeader('Content-Type', 'text/html');
-	var myReadStream = fs.createReadStream(__dirname + '/index.html', 'utf8');
-  myReadStream.pipe(response);
-});
-
-server.listen(port, hostname, () => {
-	console.log(`Server running at http://${hostname}:${port}/`);
-});
-
-
-var con = mysql.createConnection({
+var db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD
 });
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
+db.connect(function(err) {
+  if (err) {throw err;}
+  console.log(`MySQL Database connected @ ${process.env.DB_HOST}:${process.env.DB_PORT}`);
 });
+
+app.listen(port, hostname, () => {
+  console.log(`Server running @ ${hostname}:${port}/`);
+});
+
+//routes
+app.get('/', function(req, res){
+  res.sendFile('index.html', {root: path.join(__dirname, '/')});
+});
+
+
+
