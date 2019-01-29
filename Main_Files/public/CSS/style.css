@@ -1,0 +1,37 @@
+html {
+	font-family: consolas;
+	padding: 1% 15% 5% 15%;
+}
+
+h1 {
+	font-size: 100px;
+	font-style: bold;
+}
+
+ul {
+  font-size: 14pt;
+  list-style-type: none;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+li {
+  color: white;
+  align-content: center;  
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 18px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
