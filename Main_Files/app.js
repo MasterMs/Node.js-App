@@ -37,7 +37,7 @@ app.use(express.static('public'));
 
 //create server connection and log it
 app.listen(port, hostname, () => {
-  console.log(`Server running @ ${hostname}:${port}/`);
+  console.log(`Server running @ ${hostname}:${port}`);
 });
 
 //routes
