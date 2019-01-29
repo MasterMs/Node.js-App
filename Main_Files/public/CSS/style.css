@@ -8,6 +8,10 @@ h1 {
 	font-style: bold;
 }
 
+p {
+  margin-right: 25%
+}
+
 ul {
   font-size: 14pt;
   list-style-type: none;
@@ -19,8 +23,11 @@ ul {
 }
 
 li {
+  vertical-align: middle;
   color: white;
-  align-content: center;  
+  align-content: center;
+  font-weight: bolder;
+
 }
 
 li a {
