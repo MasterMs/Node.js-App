@@ -24,14 +24,14 @@ db.connect(function(err) {
   console.log(`MySQL Database connected @ ${process.env.DB_HOST}:${process.env.DB_PORT}`);
 });
 
+app.use(express.static('public'));
+
 app.listen(port, hostname, () => {
   console.log(`Server running @ ${hostname}:${port}/`);
 });
 
 //routes
 app.get('/', function(req, res){
-  res.sendFile('index.html', {root: path.join(__dirname, '/')});
+  res.sendFile(__dirname + 'index.html');
 });
-
-
 
