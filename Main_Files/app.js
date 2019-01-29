@@ -3,6 +3,8 @@ var fs = require('fs');
 var path = require('path');
 var mysql = require('mysql');
 var dotenv = require('dotenv');
+var express = require('express');
+var app  = express();
 dotenv.config()
 
 
@@ -15,7 +17,7 @@ const server = http.createServer((request, response) => {
 	response.statusCode = 200;
 	response.setHeader('Content-Type', 'text/html');
 	var myReadStream = fs.createReadStream(__dirname + '/index.html', 'utf8');
-  
+  myReadStream.pipe(response);
 });
 
 server.listen(port, hostname, () => {
