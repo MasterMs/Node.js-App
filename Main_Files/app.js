@@ -5,6 +5,7 @@ var mysql = require('mysql');
 
 //initialize express
 var app  = express();
+app.set('view engine', 'ejs')
 
 //initialize dotenv
 const result = dotenv.config();
@@ -40,8 +41,10 @@ app.listen(port, hostname, () => {
 
 //routes
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
-  console.log(`GET /index.html`);
+  res.render('index.ejs', {
+    message: "This is particular line if from an ejs template"
+  });
+  console.log(`GET /index.ejs`);
 });
 
 app.get('/user', function(req, res){
