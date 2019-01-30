@@ -52,11 +52,11 @@ app.get('/user', function(req, res){
   db.query(queryString, (err, rows, fields) => {
     console.log(`GET /user`);
     res.render('user.ejs', {
-      id: rows[0]['id'],
-      name: rows[0]['name'],
+      userData: rows,
+      /*name: rows[0]['name'],
       email: rows[0]['email'],
       password: rows[0]['password'],
-      createTime: rows[0]['create_time']
+      createTime: rows[0]['create_time']*/
     })
   });
 });
