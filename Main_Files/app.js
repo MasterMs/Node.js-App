@@ -1,11 +1,7 @@
 //imports
-var http = require('http');
-var fs = require('fs');
-var path = require('path');
 var dotenv = require('dotenv');
 var express = require('express');
 var mysql = require('mysql');
-
 
 //initialize express
 var app  = express();
@@ -31,7 +27,7 @@ const con = mysql.createConnection({
 // if error throw error else, connect to database and log connection
 con.connect(function(err) {
   if (err) throw err;
-  console.log(`connected to ${process.env.DB_NAME} @ ${process.env.DB_HOST}:${process.env.DB_PORT}`);
+  console.log(`Connection established to ${process.env.DB_NAME} @ ${process.env.DB_HOST}:${process.env.DB_PORT}`);
 });
 
 //intialize static files 
@@ -42,17 +38,25 @@ app.listen(port, hostname, () => {
   console.log(`Server running @ ${hostname}:${port}`);
 });
 
-
 //routes
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
+  console.log(`\nGET request for index.html`);
 });
 
-app.get('/users', function(req, res){
-  con.query("SELECT * FROM users", (err, rows, fields) => {
-  console.log(rows[0]['username']);
-  res.json(rows);
+app.get('/user', function(req, res){
+  const queryString = "SELECT * FROM user";
+  con.query(queryString, (err, rows, fields) => {
+    console.log(`\nGET /users`);
+    res.json(rows);
+  });
+});
 
-})
-  //res.end();
+app.get('/user/:id', function(req, res){
+  const userId = req.params.id;
+  const queryString = "SELECT * FROM user WHERE id = ?";
+  con.query(queryString, [userId], (err, rows, fields) => {
+    console.log(`GET ${userId} from ${process.env.DB_HOST}:${process.env.DB_PORT}`);
+    res.json(rows);
+  });
 });
