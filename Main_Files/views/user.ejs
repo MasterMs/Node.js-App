@@ -15,18 +15,22 @@
 	</center>
 	<h1>Users</h1>
 
-    <% for(var i=0; i<JSON.stringify(data).length; i++) {%>
-    <div class="user_object">
-        <ul>
-            <br>
-            <li>ID: <%= id %></li>
-            <li>Name: <%= name %></li>
-            <li>E-Mail:<%= email %></li>
-            <li>Password: <%= password%></li>
-            <li>Create Time: <%= createTime%></li>
-            <br>
-        <ul>
-    </div>
+    <script>
+        var row =<%-JSON.stringify(userData)%>
+        console.log(row);
+    </script>
+    <% for(var i=0; i < userData.length; i++) { %>
+        <div class="user_object">
+            <ul>
+                <br>
+                <li>ID: <%= userData[i].id %></li>
+                <li>Name: <%= userData[i].name %></li>
+                <li>E-Mail:<%= userData[i].email %></li>
+                <li>Password: <%= userData[i].password%></li>
+                <li>Create Time: <%= userData[i].createTime%></li>
+                <br>
+            <ul>
+        </div>
     <% } %>
 </body>
 </html>
