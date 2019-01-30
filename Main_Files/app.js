@@ -17,7 +17,7 @@ const hostname = 'localhost';
 const port = 8080;
 
 //initialize database credentials and create a database connection
-const con = mysql.createConnection({
+const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
@@ -25,7 +25,7 @@ const con = mysql.createConnection({
 });
 
 // if error throw error else, connect to database and log connection
-con.connect(function(err) {
+db.connect(function(err) {
   if (err) throw err;
   console.log(`Connection established to ${process.env.DB_NAME} @ ${process.env.DB_HOST}:${process.env.DB_PORT}`);
 });
@@ -41,13 +41,13 @@ app.listen(port, hostname, () => {
 //routes
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
-  console.log(`\nGET request for index.html`);
+  console.log(`\nGET index.html`);
 });
 
 app.get('/user', function(req, res){
   const queryString = "SELECT * FROM user";
-  con.query(queryString, (err, rows, fields) => {
-    console.log(`\nGET /users`);
+  db.query(queryString, (err, rows, fields) => {
+    console.log(`\nGET /user`);
     res.json(rows);
   });
 });
@@ -55,7 +55,7 @@ app.get('/user', function(req, res){
 app.get('/user/:id', function(req, res){
   const userId = req.params.id;
   const queryString = "SELECT * FROM user WHERE id = ?";
-  con.query(queryString, [userId], (err, rows, fields) => {
+  db.query(queryString, [userId], (err, rows, fields) => {
     console.log(`GET ${userId} from ${process.env.DB_HOST}:${process.env.DB_PORT}`);
     res.json(rows);
   });
