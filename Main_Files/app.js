@@ -41,13 +41,13 @@ app.listen(port, hostname, () => {
 //routes
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
-  console.log(`\nGET index.html`);
+  console.log(`GET /index.html`);
 });
 
 app.get('/user', function(req, res){
   const queryString = "SELECT * FROM user";
   db.query(queryString, (err, rows, fields) => {
-    console.log(`\nGET /user`);
+    console.log(`GET /user`);
     res.json(rows);
   });
 });
@@ -56,7 +56,7 @@ app.get('/user/:id', function(req, res){
   const userId = req.params.id;
   const queryString = "SELECT * FROM user WHERE id = ?";
   db.query(queryString, [userId], (err, rows, fields) => {
-    console.log(`GET ${userId} from ${process.env.DB_HOST}:${process.env.DB_PORT}`);
+    console.log(`GET /user/${userId}`);
     res.json(rows);
   });
 });
