@@ -42,7 +42,7 @@ app.listen(port, hostname, () => {
 //routes
 app.get('/', function(req, res){
   res.render('index.ejs', {
-    message: "This is particular line if from an ejs template"
+    message: `This is particular line if from an ejs template`
   });
   console.log(`GET /index.ejs`);
 });
@@ -51,7 +51,13 @@ app.get('/user', function(req, res){
   const queryString = "SELECT * FROM user";
   db.query(queryString, (err, rows, fields) => {
     console.log(`GET /user`);
-    res.json(rows);
+    res.render('user.ejs', {
+      id: rows[0]['id'],
+      name: rows[0]['name'],
+      email: rows[0]['email'],
+      password: rows[0]['password'],
+      createTime: rows[0]['create_time']
+    })
   });
 });
 
