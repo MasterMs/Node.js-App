@@ -16,7 +16,6 @@ p {
 a{
   font-family: 'Major Mono Display', monospace;
   vertical-align: -50%;
-
   color: white;
 }
 
@@ -28,4 +27,14 @@ ul{
   font-size: 14pt;
   background-color: black;
   height: 50px;
+}
+
+.nav-text{
+  font-family: 'Major Mono Display', monospace;
+  color: white;
+}
+
+.userNotation{
+  font-family: consolas;
+  color: black;
 }
