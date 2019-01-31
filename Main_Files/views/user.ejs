@@ -3,31 +3,28 @@
 <head>
 	<meta charset="UTF-8">
 	<link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<title>Node.js-App</title>
 </head>
 <body>
 	<center>
 		<div id="nav-bar">
-			<a href="http://localhost:8080/">home</a>
-			<a href="http://localhost:8080/user">users</a>
+			<a class = "nav-text" href="http://localhost:8080/">home</a>
+			<a class = "nav-text" href="http://localhost:8080/user">users</a>
 		</div>
 	</center>
 	<h1>Users</h1>
-
-    <script>
-        var row =<%-JSON.stringify(userData)%>
-        console.log("row: ",row);
-    </script>
     <% for(var i=0; i < userData.length; i++) { %>
         <div class="user_object">
             <ul>
                 <br>
-                <li>ID: <%= userData[i].id %></li>
-                <li>Name: <%= userData[i].name %></li>
-                <li>E-Mail:<%= userData[i].email %></li>
-                <li>Password: <%= userData[i].password%></li>
-                <li>Create Time: <%= userData[i].createTime%></li>
+                <a href=<%= 'user/' + userData[i].id %>>
+                    <li class = "userNotation">ID: <%= userData[i].id %></li>
+                    <li class = "userNotation">Name: <%= userData[i].name %></li>
+                    <li class = "userNotation">E-Mail:<%= userData[i].email %></li>
+                    <li class = "userNotation">Password: <%= userData[i].password%></li>
+                    <li class = "userNotation">Create Time: <%= userData[i].createTime%></li>
+                </a>
                 <br>
             <ul>
         </div>
