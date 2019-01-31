@@ -41,8 +41,10 @@ app.listen(port, hostname, () => {
 
 //routes
 app.get('/', function(req, res){
+  const messageString = `This is particular line if from an ejs template,
+  but it just so happens that that Database data is in the "USERS" tab`
   res.render('index.ejs', {
-    message: `This is particular line if from an ejs template`
+    message: messageString
   });
   console.log(`GET /index.ejs`);
 });
@@ -64,7 +66,7 @@ app.get('/user/:id', function(req, res){
   db.query(queryString, [userId], (err, rows, fields) => {
     console.log(`GET /user/${userId}`);
     res.render('user.ejs', {
-      userData: rows[userId]
+      userData: rows
     });
   });
 });
