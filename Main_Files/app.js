@@ -63,8 +63,8 @@ app.get('/user/:id', function(req, res){
   const queryString = "SELECT * FROM user WHERE id = ?";
   db.query(queryString, [userId], (err, rows, fields) => {
     console.log(`GET /user/${userId}`);
-    res.render('user_viewer.ejs', {
-      userData: rows
+    res.render('user.ejs', {
+      userData: rows[userId]
     });
   });
 });
