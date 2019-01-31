@@ -28,7 +28,7 @@ const db = mysql.createConnection({
 // if error throw error else, connect to database and log connection
 db.connect(function(err) {
   if (err) throw err;
-  console.log(`Connection established to ${process.env.DB_NAME} @ ${process.env.DB_HOST}:${process.env.DB_PORT}`);
+  console.log(`Connection established to MySQL Database: ${process.env.DB_NAME} @ ${process.env.DB_HOST}:${process.env.DB_PORT}`);
 });
 
 //intialize static files 
