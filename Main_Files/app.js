@@ -53,19 +53,18 @@ app.get('/user', function(req, res){
     console.log(`GET /user`);
     res.render('user.ejs', {
       userData: rows,
-      /*name: rows[0]['name'],
-      email: rows[0]['email'],
-      password: rows[0]['password'],
-      createTime: rows[0]['create_time']*/
     })
   });
 });
 
+//get specific user object
 app.get('/user/:id', function(req, res){
   const userId = req.params.id;
   const queryString = "SELECT * FROM user WHERE id = ?";
   db.query(queryString, [userId], (err, rows, fields) => {
     console.log(`GET /user/${userId}`);
-    res.json(rows);
+    res.render('user_viewer.ejs', {
+      userData: rows
+    });
   });
 });
