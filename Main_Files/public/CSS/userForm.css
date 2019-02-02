@@ -4,7 +4,7 @@
 body 				 { background:url(https://scotch.io/wp-content/uploads/2014/07/61.jpg); }
 .container 		{ 
   font-family: consolas;
-  width:600px; 
+  width: 500px; 
   margin:30px auto 0; 
   display:block; 
   background:#FFF;
@@ -27,14 +27,7 @@ h2 small {
   position:relative; 
   margin-bottom:45px; 
 }
-input 				{
-  font-size:18px;
-  padding:10px 10px 10px 5px;
-  display:block;
-  width:300px;
-  border:none;
-  border-bottom:1px solid #757575;
-}
+
 input:focus 		{ outline:none; }
 
 /* LABEL ======================================= */
