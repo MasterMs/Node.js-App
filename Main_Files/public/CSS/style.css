@@ -39,3 +39,22 @@ ul{
   color: black;
 }
 
+input 				{
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:600px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+
+.submitButton{
+  margin-left: 50%;
+  font-family: consolas;
+  width: 200px;
+  height: 50px;
+}
+
+.submitButton:hover{
+  background-color: rgba(255, 255, 255, 0.212);
+}
