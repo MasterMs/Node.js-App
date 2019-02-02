@@ -54,7 +54,6 @@ app.get('/user', function(req, res){
   db.query(queryString, (err, rows, fields) => {
     console.log(`GET /user`);
     res.render('user.ejs', {
-      title: "Users",
       userData: rows
     })
   });
@@ -67,9 +66,14 @@ app.get('/user/:id', function(req, res){
   db.query(queryString, [userId], (err, rows, fields) => {
     console.log(`GET /user/${userId}`);
     res.render('user.ejs', {
-      title: userData['username'],
       userData: rows
     });
+  });
+});
+
+app.get('/create_user', function(req, res){
+  res.render('createUser.ejs', {
+    
   });
 });
 
