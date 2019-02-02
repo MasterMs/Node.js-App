@@ -54,7 +54,8 @@ app.get('/user', function(req, res){
   db.query(queryString, (err, rows, fields) => {
     console.log(`GET /user`);
     res.render('user.ejs', {
-      userData: rows,
+      title: "Users",
+      userData: rows
     })
   });
 });
@@ -66,6 +67,7 @@ app.get('/user/:id', function(req, res){
   db.query(queryString, [userId], (err, rows, fields) => {
     console.log(`GET /user/${userId}`);
     res.render('user.ejs', {
+      title: userData['username'],
       userData: rows
     });
   });
